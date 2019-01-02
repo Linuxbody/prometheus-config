@@ -1,0 +1,21 @@
+groups:
+- name: example     # 报警规则组的名字
+  rules:
+  - alert: InstanceDown     #检测job的状态，持续1分钟metrices不能访问会发给altermanager进行报警
+    expr: up == 0
+    for: 1m    #持续时间
+    labels:
+      serverity: page
+    annotations:
+      summary: "Instance {{ $labels.instance }} down"
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."
+
+  - alert: 网站不能访问告警    #规则名称
+    expr: probe_http_status_code{job="http"} != 200   #表示状态码不等于200 ，则触发告警
+    for: 20s       #持续时间，表示持续20 秒都是不能访问，则报警
+    labels:
+      severity: page
+      status: 200
+    annotations:
+      summary: "{{ $labels.job }} - {{ $labels.instance }} 不能访问了"  #自定义摘要
+      description: "应用名: {{ $labels.job }} 实例名: {{ $labels.instance }} ,当前值为: {{ $value}} "

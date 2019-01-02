@@ -1,0 +1,7 @@
+{{ define "default.html" }}
+  {{ range $i, $alert := .Alerts.Firing }}
+    [报警项]:{{ index $alert.Labels "alertname" }} <br />
+    [实例]:{{ index $alert.Labels "instance" }} <br />
+    [Source]:  http://victor.me
+  {{ end }}
+{{ end }}

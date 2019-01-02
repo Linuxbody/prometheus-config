@@ -1,0 +1,15 @@
+[Unit]
+Description=Prometheus AlertManager
+Documentation=https://prometheus.io/docs/introduction/overview/
+After=network.target
+
+[Service]
+User=root
+Restart=on-failure
+WorkingDirectory=/var/lib/alertmanager
+ExecStart=/usr/local/sbin/alertmanager \
+          --config.file=/usr/local/prometheus/alertmanager/alertmanager.yml \
+          --storage.path="/usr/local/prometheus/alertmanager/data"
+
+[Install]
+WantedBy=multi-user.target

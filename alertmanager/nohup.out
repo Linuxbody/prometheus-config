@@ -1,0 +1,16 @@
+level=info ts=2018-12-26T08:12:55.727211064Z caller=main.go:174 msg="Starting Alertmanager" version="(version=0.15.3, branch=HEAD, revision=d4a7697cc90f8bce62efe7c44b63b542578ec0a1)"
+level=info ts=2018-12-26T08:12:55.727275351Z caller=main.go:175 build_context="(go=go1.11.2, user=root@4ecc17c53d26, date=20181109-15:40:48)"
+level=info ts=2018-12-26T08:12:55.732125776Z caller=cluster.go:155 component=cluster msg="setting advertise address explicitly" addr=10.117.150.43 port=9094
+level=info ts=2018-12-26T08:12:55.733557567Z caller=main.go:322 msg="Loading configuration file" file=alertmanager.yml
+level=info ts=2018-12-26T08:12:55.733589578Z caller=cluster.go:570 component=cluster msg="Waiting for gossip to settle..." interval=2s
+level=info ts=2018-12-26T08:12:55.737254404Z caller=main.go:398 msg=Listening address=:9093
+level=info ts=2018-12-26T08:12:57.733802542Z caller=cluster.go:595 component=cluster msg="gossip not settled" polls=0 before=0 now=1 elapsed=2.000140252s
+level=info ts=2018-12-26T08:13:05.734361558Z caller=cluster.go:587 component=cluster msg="gossip settled; proceeding" elapsed=10.000709019s
+level=info ts=2018-12-26T08:14:37.716412024Z caller=main.go:174 msg="Starting Alertmanager" version="(version=0.15.3, branch=HEAD, revision=d4a7697cc90f8bce62efe7c44b63b542578ec0a1)"
+level=info ts=2018-12-26T08:14:37.716490699Z caller=main.go:175 build_context="(go=go1.11.2, user=root@4ecc17c53d26, date=20181109-15:40:48)"
+level=info ts=2018-12-26T08:14:37.721074699Z caller=cluster.go:155 component=cluster msg="setting advertise address explicitly" addr=10.117.150.43 port=9094
+level=info ts=2018-12-26T08:14:37.721943727Z caller=main.go:322 msg="Loading configuration file" file=alertmanager.yml
+level=info ts=2018-12-26T08:14:37.721972548Z caller=cluster.go:570 component=cluster msg="Waiting for gossip to settle..." interval=2s
+level=info ts=2018-12-26T08:14:37.725488843Z caller=main.go:398 msg=Listening address=:9093
+level=info ts=2018-12-26T08:14:39.722145588Z caller=cluster.go:595 component=cluster msg="gossip not settled" polls=0 before=0 now=1 elapsed=2.000092611s
+level=info ts=2018-12-26T08:14:47.722733419Z caller=cluster.go:587 component=cluster msg="gossip settled; proceeding" elapsed=10.000689545s

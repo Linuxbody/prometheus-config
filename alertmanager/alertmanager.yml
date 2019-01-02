@@ -1,0 +1,49 @@
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'smtp.163.com:25'
+  smtp_from: 'ccg0428@163.com'  
+  smtp_auth_username: 'ccg0428@163.com' 
+  smtp_auth_password: '123Com'
+  smtp_require_tls: false
+
+templates:
+  - '/usr/local/prometheus/alertmanager/*.tmpl'
+
+route:
+  group_by: ['cluster','alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 5m
+  receiver: 'webdingding'
+
+  routes:
+  - receiver: 'webdingding'
+    group_wait: 10s
+    continue: true
+    match:
+      job: http
+
+  - receiver: 'email'
+    group_wait: 10s
+    continue: true
+    match:
+      job: http
+
+receivers:
+  - name: 'email'
+    email_configs:
+    - to: 'ccg0428@163.com'
+      html: '{{ template "default.html" . }}'
+
+  - name: 'webdingding'
+    webhook_configs:
+    - url: http://10.113.2.80:8060/dingtalk/ops_dingding/send
+      send_resolved: true
+
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
