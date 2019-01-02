@@ -3,7 +3,7 @@ global:
   smtp_smarthost: 'smtp.163.com:25'
   smtp_from: 'ccg0428@163.com'  
   smtp_auth_username: 'ccg0428@163.com' 
-  smtp_auth_password: '123Com'
+  smtp_auth_password: 'smtp认证密码'
   smtp_require_tls: false
 
 templates:
